@@ -9,9 +9,8 @@
   },
   "betterScripts": {
     "start": {
-      "command": "node index 3> app.log",
+      "command": "node index",
       "env": {
-        "DEBUG_FD": "3",
         "NODE_ENV": "development"
       }
     }
