@@ -2,6 +2,7 @@
   "name": "breed-sass",
   "version": "1.0.0",
   "description": "A genetic algorithm for breeding stupidly large sass files",
+  "repository": "https://github.com/weshardee/breed-sass.git",
   "main": "index.js",
   "scripts": {
     "start": "better-npm-run start"
