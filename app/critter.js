@@ -4,10 +4,8 @@ const CRITTER_SIZE = 50;
 const CHARS = ' abcdefghijklmnopqrstuvwxyz0123456789:/{}.#@-'
 const NUM_CHARS = CHARS.length;
 
-export function createCritter() {
-    let gene = '';
-
-    for (let i = 0; i < CRITTER_SIZE; i++) {
+export function createCritter(gene = '') {
+    while (gene.length < CRITTER_SIZE) {
         gene += CHARS.charAt(Math.floor(Math.random() * NUM_CHARS));
     }
 
