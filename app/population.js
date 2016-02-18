@@ -8,12 +8,15 @@ const POP_SIZE = 50;
 const debug = require('debug')('app:population');
 
 export function createCritter() {
-    let critter = '';
+    let gene = '';
 
     for (let i = 0; i < CRITTER_SIZE; i++) {
-        critter += CHARS.charAt(Math.floor(Math.random() * NUM_CHARS));
+        gene += CHARS.charAt(Math.floor(Math.random() * NUM_CHARS));
     }
-    return critter;
+
+    const score = scoreGenome(gene);
+
+    return { gene, score };
 }
 
 export function evaluateFitness(critter) {
@@ -26,7 +29,7 @@ export function createPopulation() {
         population.push(createCritter());
     }
     sortPopulation(population);
-    debug('population created', logPopulation(population));
+    debug('population created', population);
 
     return population;
 }
@@ -35,22 +38,13 @@ export function sortPopulation(pop) {
     pop.sort(compare);
 }
 
-export function logPopulation(pop) {
-    return pop.map(critter => ({
-        score: scoreCritter(critter),
-        gene: critter,
-    }));
-}
-
 export function compare(a, b) {
-    return scoreCritter(a) - scoreCritter(b);
+    return a.score - b.score;
 }
 
-export function scoreCritter(critter) {
+export function scoreGenome(data) {
     try {
-        return sass.renderSync({
-            data: critter,
-        });
+        return sass.renderSync({ data });
     } catch(e) {
         return 0;
     }
