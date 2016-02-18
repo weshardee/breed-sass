@@ -11,6 +11,7 @@
     "start": {
       "command": "node index 3> app.log",
       "env": {
+        "DEBUG_FD": "3",
         "NODE_ENV": "development"
       }
     }
