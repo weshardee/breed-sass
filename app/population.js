@@ -49,3 +49,8 @@ export function scoreGenome(data) {
         return 0;
     }
 }
+
+export function breed(pop) {
+    const totalScore = pop.reduce((total, critter) => total + critter.score, 0);
+    debug('population total', totalScore);
+}
