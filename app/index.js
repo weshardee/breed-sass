@@ -7,4 +7,4 @@ debug('booting %s', name);
 
 const pop = createPopulation();
 
-debug('made a population: ' + pop);
+debug('all done');
